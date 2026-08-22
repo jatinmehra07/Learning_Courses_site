@@ -70,11 +70,10 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
   if (
     session.metadata &&
     session.metadata.courseTitle &&
-    session.metadata.courseImageUrl &&
-    process.env.NODE_ENV === "development"
+    session.metadata.courseImageUrl
   ) {
     await resend.emails.send({
-      from: "MasterClass <onboarding@resend.dev>",
+      from: "MasterClass bsmehraji@gmail.com",
       to: user.email,
       subject: "Purchase Confirmed",
       react: PurchaseConfirmationEmail({
